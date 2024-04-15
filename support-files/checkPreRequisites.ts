@@ -1,5 +1,8 @@
-const { isCommandAvailable } = require("./commandChecker");
+import { isCommandAvailable } from "./commandChecker";
 
+/**
+ * Check pre-requisites
+ */
 function checkPrerequisites() {
     console.log('Checking pre-requisites');
     if (isCommandAvailable('git') && isCommandAvailable("gh") && isCommandAvailable('npm')) {
@@ -9,4 +12,5 @@ function checkPrerequisites() {
         process.exit(1);
     }
 }
-module.exports = { checkPrerequisites }
+
+export { checkPrerequisites };

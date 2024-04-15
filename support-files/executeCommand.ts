@@ -1,13 +1,13 @@
-//@ts-check
-const { execSync } = require('child_process');
+import { execSync } from 'child_process';
 
 /**
  * Command execution function
  * 
  * @param {string} command - Command to execute
+ * @param {object} options - Options for the command execution
  * @returns {string | boolean} - Output of the command or false if error
  */
-function executeCommand(command, options = {}) {
+function executeCommand(command: string, options: object = {}): string | boolean {
     try {
         const output = execSync(command, { encoding: 'utf-8', ...options });
         return output;
@@ -18,4 +18,4 @@ function executeCommand(command, options = {}) {
     }
 }
 
-module.exports = { executeCommand };
+export { executeCommand };

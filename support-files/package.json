@@ -1,0 +1,16 @@
+{
+  "name": "wrappid-dev-setup-script",
+  "version": "1.0.0",
+  "main": "main.js",
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "description": "",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "typescript": "~5.4.5"
+  }
+}

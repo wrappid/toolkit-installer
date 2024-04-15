@@ -1,13 +1,19 @@
-const { executeCommand } = require('./executeCommand');
+import { executeCommand } from './executeCommand';
 
-function openBrowser(url) {
+/**
+ * Opens the provided URL in the default browser
+ * 
+ * @param {string} url - URL to open in the browser
+ * @returns 
+ */
+function openBrowser(url: string): void {
   // Validate URL format to prevent potential security issues
   if (!/^https?:\/\//.test(url)) {
     console.error('Invalid URL format. Please provide a valid https:// or http:// URL.');
     return;
   }
 
-  let command;
+  let command: string;
   switch (process.platform) {
     case 'darwin':
       command = 'open';
@@ -23,11 +29,12 @@ function openBrowser(url) {
       return;
   }
   executeCommand(`${command} ${url}`);
-  // spawnSync(command, [url]);
 }
 
-async function requestToken() {
-  // waitTwoSeconds();
+/**
+ * Requests the Wrappid Registry Token
+ */
+async function requestToken(): Promise<void> {
   console.log("A form will open in your default browser, please fill it out to get your Wrappid Registry Token in your email. \n Press enter to open the form...");
   await waitForEnter();
   console.log("Opening the form in your default browser...");
@@ -36,19 +43,28 @@ async function requestToken() {
   openBrowser(targetUrl);
 }
 
-function waitTwoSeconds() {
+/**
+ * Waits for 2 seconds
+ * 
+ * @returns - Promise that resolves after 2 seconds 
+ */
+function waitTwoSeconds(): Promise<void> {
   return new Promise(resolve => {
     setTimeout(resolve, 2000);
   });
 }
 
-
-
-function waitForEnter() {
+/**
+ * Waits for the user to press enter
+ * 
+ * @returns - Promise that resolves when the user presses enter
+ */
+function waitForEnter(): Promise<void> {
   return new Promise(resolve => {
     process.stdin.once('data', () => {
       resolve();
     });
   });
 }
-module.exports = { requestToken }
+
+export { requestToken };
