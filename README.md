@@ -2,6 +2,7 @@
 
 This repository contains an installer for the wrappid toolkit.
 
+
 ## Pre-requisites
 
 Before installing the @wrappid/toolkit, make sure you have the following software installed:
@@ -12,7 +13,7 @@ Before installing the @wrappid/toolkit, make sure you have the following softwar
 
 ## Installation Guide
 
-To install the @wrappid/toolkit, please follow these steps based on your operating system:
+To install the @wrappid/toolkit, download the toolkit-installer from [here](https://github.com/wrappid/toolkit-installer/releases/latest) and please follow these steps based on your operating system:
 
 ### Windows
 
